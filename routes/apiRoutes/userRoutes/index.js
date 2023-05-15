@@ -8,6 +8,14 @@ const { User } = require('../../../models');
 router.post('/signup', async (req, res) => {
   try {
     const userData = req.body;
+    const existingUser = await User.findAll({
+      where: {
+        username: userData.username,
+      }
+    });
+    if (existingUser.email === userData.email) {
+      return res.status(400).json({message: 'User already exists'});
+    }
     const hashedPassword = await bcrypt.hash(userData.password, 10);
     userData.password = hashedPassword;
     const newUser = await User.create(userData);
@@ -24,7 +32,7 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(newUser);
     });
   } catch (error) {
-    res.status(500).json({error});
+    res.status(500).json(error);
   }
 });
 

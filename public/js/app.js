@@ -1,6 +1,7 @@
 const $username = document.getElementById('username');
 const $email = document.getElementById('email');
 const $password = document.getElementById('password');
+const $passwordConfirm = document.getElementById('passwordConfirm');
 const $submitBtn = document.getElementById('submitBtn');
 const $loginsubmitBtn = document.getElementById('loginsubmitBtn');
 
@@ -22,11 +23,10 @@ $loginsubmitBtn.addEventListener('click', async (event) => {
       body: JSON.stringify({username, password}),
     });
     const data = await response.json();
-    if (data) {
-      location.href = `/users/${data.id}`;
+    if (data.message) {
+      return alert(data.message);
     } else {
-      alert('Invalid username or password');
-      alert(data);
+      location.href = `/users/${data.id}`;
     }
   } catch (error) {
     console.log(error);
@@ -42,9 +42,14 @@ $submitBtn.addEventListener('click', async (event) => {
   const username = $username.value;
   const email = $email.value;
   const password = $password.value;
+  const passwordConfirm = $passwordConfirm.value;
 
-  if (!username || !password || !email) {
+  if (!username || !password || !email || !passwordConfirm) {
     return alert('Username, email and password must be provided');
+  }
+
+  if (password !== passwordConfirm) {
+    return alert('Passwords must match');
   }
 
   try {
@@ -55,8 +60,15 @@ $submitBtn.addEventListener('click', async (event) => {
     });
     const data = await response.json();
     console.log(data);
-    alert (data);
+    if (data.message) {
+      return alert(data.message);
+    }
+    if (data.errors) {
+      return alert(data.errors[0].message);
+    }
+    if (data.id) {
     location.href = `/users/${data.id}`;
+    }
   } catch (error) {
     console.log(error);
     alert(error);

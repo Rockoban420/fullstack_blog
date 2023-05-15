@@ -1,19 +1,37 @@
-<p>Hello</p>
+<div class="d-flex">
+<h1 class="p-2 flex-grow-1">Welcome {{user.username}}! </h1>
+<button class="p-2 mt-2 mr-5 btn btn-danger h-25 p-25" id="logoutBtn">Log out</button>
+</div>
 
-<h1>Todos</h1>
-
-<button id="logoutBtn">Log out</button>
-
+<div class="mx-5">
 <form>
-  <input id='todo' type="text" name="todo" placeholder="Walk the dog"/>
-  <button id="todosubmitBtn">Submit</button>
+    <div class="card col-12">
+  <div class="card-header d-flex justify-content-center">
+    <h4>Create a new post: </h4>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <input id='todo' type="text" name="todo" class="col-11" placeholder="Walk the dog"/>
+      <button type="button" class="btn btn-primary" id="todosubmitBtn">Submit</button>
+    </blockquote>
+  </div>
+</div>
 </form>
+</div>
+
+<h1 class="my-4 d-inline-flex justify-content-center">Post History: </h1>
 
 <ul id="todoList">
   {{#each user.blogs as |blog|}}
-    <li>{{blog.content}}</li>
+    <div class="card mt-2 col-11">
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{blog.content}}</p>
+      <footer class="blockquote-footer">{{createdAt}}</footer>
+    </blockquote>
+  </div>
+</div>
   {{/each}}
 </ul>
-
 
 <script src="/js/userProfile.js"></script>

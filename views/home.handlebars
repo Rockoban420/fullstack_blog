@@ -1,0 +1,17 @@
+<h1 class="mt-2 d-flex justify-content-center"> Homepage </h1>
+
+<ul id="fullList">
+  {{#each blogs as |blog|}}
+  <div class="card mt-3 col-11">
+  <div class="card-header">
+    Made by: {{user.username}}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{content}}</p>
+      <footer class="blockquote-footer">{{createdAt}}</footer>
+    </blockquote>
+  </div>
+</div>
+  {{/each}}
+</ul>
