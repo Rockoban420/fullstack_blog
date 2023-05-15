@@ -1,0 +1,14 @@
+<!--
+  Partials are reusable templates that we don't want to repeat in our code.
+  Once we get to React, every component we make is a "partial"
+-->
+<li>
+  <a href="/users/{{id}}">{{toUpperCase username}}</a>
+  {{#if over9000}}
+    <p>It's over 9000!</p>
+  {{else}}
+    <p>{{password}}</p>
+  {{/if}}
+  <p>{{format_date createdAt}}</p>
+  <p>{{format_date updatedAt}}</p>
+</li>

@@ -1,0 +1,19 @@
+<p>Hello</p>
+
+<h1>Todos</h1>
+
+<button id="logoutBtn">Log out</button>
+
+<form>
+  <input id='todo' type="text" name="todo" placeholder="Walk the dog"/>
+  <button id="todosubmitBtn">Submit</button>
+</form>
+
+<ul id="todoList">
+  {{#each user.blogs as |blog|}}
+    <li>{{blog.content}}</li>
+  {{/each}}
+</ul>
+
+
+<script src="/js/userProfile.js"></script>
