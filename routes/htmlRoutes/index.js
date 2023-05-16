@@ -16,6 +16,10 @@ const { Blog, User, Comment } = require('../../models');
 //   }
 // });
 
+router.get('/', (req, res) => {
+  res.render('login');
+});
+
 
 router.get('/signup', async (req, res) => {
   try {
