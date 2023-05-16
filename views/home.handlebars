@@ -2,14 +2,14 @@
 
 <ul id="fullList">
   {{#each blogs as |blog|}}
-  <div class="card mt-3 col-11">
+  <div id={{id}} class="card mt-3 col-11">
   <div class="card-header">
     Made by: {{user.username}}
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p>{{content}}</p>
-      <footer class="blockquote-footer">{{createdAt}}</footer>
+      <footer class="blockquote-footer">{{format_date createdAt}}</footer>
     </blockquote>
   </div>
 </div>

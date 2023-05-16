@@ -20,21 +20,5 @@ router.post('/', async (req, res) => {
   }
 });
 
-// router.post('/upload', (req, res) => {
-//   // Get the file that was set to our field named "image"
-//   console.log(req.files);
-//   if (!req.files) return res.sendStatus(400).json({message: 'No image submitted 2'}) ;
-
-//   const { image } = req.files;
-
-//   // If no image submitted, exit
-//   if (!image) return res.sendStatus(400).json({message: 'No image submitted'});
-
-//   // Move the uploaded image to our upload folder
-//   image.mv(__dirname  + '/images/' + image.name);
-
-//   // Send response
-//   res.sendStatus(200).json({name: image.name, path: `/images/${image.name}`});
-// });
 
 module.exports = router;

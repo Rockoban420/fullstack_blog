@@ -10,8 +10,8 @@
 <nav class="navbar bg-black bg-gradient" data-bs-theme="dark">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1"> <h1>Full-stack Blog</h1></span>
-    <span class="navbar-brand mb-0 h1"> {{#if loggedInUser}} <a href="/homepage">Home</a> </span> {{/if}}
-    <span class="navbar-brand mb-0 h1"> {{#if loggedInUser}} <a href='/users/{{loggedInUser.id}}'>Profile</a> </span>  {{/if}}
+    <span class="navbar-brand mb-0 h1"> {{#if loggedInUser}} <a href="/homepage"> <h3>Home</h3></a> </span> {{/if}}
+    <span class="navbar-brand mb-0 h1"> {{#if loggedInUser}} <a href='/users/{{loggedInUser.id}}'><h3>Profile</h3></a> </span>  {{/if}}
     {{!-- <span class="navbar-brand mb-0 h1"> {{#if loggedInUser}} <button id="logoutBtn">Log out</button>  {{/if}} --}}
   </div>
 </nav>
